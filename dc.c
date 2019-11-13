@@ -48,7 +48,9 @@ void calcular(char* linea) {
 
         } else {
             operando_1 = pila_desapilar(pila);
+            printf("operando 1: %i\n", *operando_1);
             operando_2 = pila_desapilar(pila);
+            printf("operando 2: %i\n", *operando_2);
             ternario = pila_desapilar(pila);
             bool coherencia = aplicar_operador(operando_1, operando_2, ternario, ecuacion[i], &resultado);
             if (coherencia == false) {
@@ -60,6 +62,7 @@ void calcular(char* linea) {
             aux[i] = resultado;
             pila_apilar(pila, &aux[i]);
         }
+        printf("resultado*: %i\n", resultado);
     }
     pila_desapilar(pila);
     if (!pila_esta_vacia(pila)) {

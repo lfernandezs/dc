@@ -74,3 +74,34 @@ bool logaritmo(int argumento, int base, int* resultado) {
     *resultado = cont;
     return true;
 }
+
+bool squareroot(int* radicando, int* resultado) {
+    if (!radicando) return false;
+    int raiz = *radicando/2;
+    while (!((raiz-1)*(raiz-1) < *radicando && (raiz+1)*(raiz+1) > *radicando)) {
+        if (raiz*raiz < *radicando) raiz = (raiz + *radicando) / 2;
+        else if (raiz*raiz > *radicando) raiz /= 2;
+    }
+    *resultado = raiz;
+    return true;
+}
+
+bool ter(int* condicion, int* caso_verdadero, int* caso_falso, int* resultado) {
+    if (!condicion || !caso_verdadero || !caso_falso) return false;
+    if (*condicion) *resultado = *caso_verdadero;
+    else *resultado = *caso_falso;
+    return true;
+}
+
+bool logaritmo(int* argumento, int* base, int* resultado) {
+    if (!argumento || !base) return false;
+    printf("operacion logaritmo\n");
+    return true;
+}
+
+bool se_encuentra(char* buscado, char** vector, int largo) {
+    for (int i = 0; i < largo; i++) {
+        if (strcmp(buscado, vector[i]) == 0) return true;
+    }
+    return false;
+}
